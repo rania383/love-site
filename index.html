@@ -1,38 +1,45 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>For You ❤️</title>
-<style>
-body {
-background: pink;
-text-align: center;
-font-family: Arial;
-padding-top: 100px;
-}
-button {
-padding: 15px 30px;
-font-size: 20px;
-border-radius: 10px;
-border: none;
-background: red;
-color: white;
-}
-</style>
-</head>
-<body>
+<h1>💘 Love Quiz 💘</h1>
 
-<h1>For My Love 💖</h1>
-<button onclick="showMessage()">Open Me</button>
+<form id="quiz">
 
-<p id="message" style="display:none; font-size:25px; margin-top:20px;">
-I love you forever ❤️
-</p>
+<p>1️⃣ tebghini?</p>
+<input type="radio" name="q1" value="1"> oui ❤️<br>
+<input type="radio" name="q1" value="0"> non 💔<br>
+
+<p>2️⃣couleur ta3i préfére chah?</p>
+<input type="radio" name="q2" value="1"> blanc 💕<br>
+<input type="radio" name="q2" value="0"> rose 😢<br>
+<input type="radio" name="q2" value="0"> vert 💖<br>
+
+<p>3️⃣ isemi zawj chah?</p>
+<input type="radio" name="q3" value="1"> amira 😍<br>
+<input type="radio" name="q3" value="0"> rania 💖<br>
+
+<br>
+<button type="button" onclick="checkQuiz()">Submit 💖</button>
+</form>
+
+<p id="result"></p>
 
 <script>
-function showMessage() {
-document.getElementById("message").style.display = "block";
+function checkQuiz() {
+  let score = 0;
+  let q1 = document.querySelector('input[name="q1"]:checked');
+  let q2 = document.querySelector('input[name="q2"]:checked');
+  let q3 = document.querySelector('input[name="q3"]:checked');
+
+  if (q1) score += parseInt(q1.value);
+  if (q2) score += parseInt(q2.value);
+  if (q3) score += parseInt(q3.value);
+
+  let result = document.getElementById("result");
+
+  if (score === 3) {
+    result.innerHTML = "😍 Perfect! True Love 💕";
+  } else if (score === 2) {
+    result.innerHTML = "😊 Good! Love is strong ❤️";
+  } else {
+    result.innerHTML = "😢 Love needs more care 💔";
+  }
 }
 </script>
-
-</body>
-</html>
